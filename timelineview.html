@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Your Timeline</title>
+		<link href="css/main.css" rel="stylesheet">
+		<script src="js/jquery-1.7.1.min.js"></script>
+		<script src="bootstrap/js/bootstrap-tooltip.js"></script>
+		<script src="bootstrap/js/bootstrap-transition.js"></script>
+    <script src="bootstrap/js/bootstrap-modal.js"></script>
+    <script src="bootstrap/js/bootstrap-popover.js"></script>
+    <script src="bootstrap/js/bootstrap-button.js"></script>
+    <script src="bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="js/default.js" type="text/javascript" charset="utf-8"></script>
+		
+	 <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+      
+	</head>
+
+	<body>
+		
+		<div id="navigation">
+		  <div class="navbar">
+        <div class="navbar-inner">
+  				<ul class="nav">
+  				  <li class="title"><a href="#" rel="popover" data-content="User generated description of this time line" title="Title">Your Timeline Title</a></li>
+  				</ul>
+  				<ul class="nav pull-right">
+  				  <li class="dropdown" id="menu1">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+                <i class="icon-cog"></i> Options
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Edit this timeline</a></li>
+                <li><a href="#">Create a new timeline</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Sign up</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+  				  <li class="promo"><a href="#about" rel="popover" data-content="You can make your own! Create beautiful timelines for anything: Family, work, vacations, school, projects, etc.. It takes only moments to sign up and to create your first timeline." title="This is a Timeline App timeline"><i class="icon-info-sign"></i> powered by Timeline App</a></li>
+  				</ul>
+				</div>
+			</div>
+		</div>		
+		
+		<!-- BEGIN Timeline Embed -->
+		<div id="timeline-embed"></div>
+		<script type="text/javascript">
+		    var timeline_config = {
+				width: "100%",
+				height: "100%",
+				source: 'https://docs.google.com/spreadsheet/pub?key=0AggSciHmwiFodHBWSFJoMERWYUI4Ynk1eTE1N2U2Mnc&output=html',
+				font: 		'Bevan-PotanoSans',	//OPTIONAL
+				css: 		'Timeline/timeline.css',	//OPTIONAL
+				js: 		'Timeline/timeline.js'	//OPTIONAL
+			}
+		</script>
+		<script type="text/javascript" src="Timeline/timeline-embed.js"></script>
+		<!-- END Timeline Embed -->
+		
+		<div class="modal hide fade" id="about">
+		  <div class="modal-header">
+		    <h3>Timeline App</h3>
+		  </div>
+		  <div class="modal-body">
+		    <p>This is a <a href="#home">Timeline App</a> timeline. You can make your own!</p>
+		    <p>Create beautiful timelines for anything: Family, work, vacations, school, projects, etc.. It takes only moments to sign up and to create your first timeline. Check out some <a href="#example">great examples</a>.</p>
+		  </div>
+		  <div class="modal-footer">
+		    <a href="#home" class="btn">Go to Timeline App</a>
+		    <button class="btn btn-success" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+		
+	</body>
+</html>
