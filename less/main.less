@@ -18,6 +18,14 @@ h1 {
   margin-bottom:1em;
 }
 
+h2 {
+  &.listHeader {
+    color:#000;
+    font-size:1.5em;
+    margin:0.8em 0px 0.5em 0px;
+  }
+}
+
 #timeline-embed {
   z-index:1;
   margin: 0px !important;
@@ -130,12 +138,20 @@ table {
     &.inlineOptions {
       width:100px;
     }
+    &#addEventRow {
+      text-align:center;
+      padding-top:15px;
+    }
+    &.range {
+      width:10px;
+      padding-left:0px !important;
+      padding-right:0px !important;
+    }
     &.date {
       white-space:nowrap;
-      width:100px;
+      width:10px;
       font-size:1.3em;
       line-height:1.4em;
-      font-weight:bold;
       span {
         color:#999;
         display:block;
@@ -147,10 +163,20 @@ table {
     &.title {
       font-size:1.3em;
       line-height:1.4em;
+      padding-left:50px !important;
       div {
         margin-top:1px;
       }
     }
+  }
+}
+
+.guide {
+  p {
+    margin:1em 0;
+    font-size:1.1em;
+    line-height:1.5em;
+    color:#999;
   }
 }
 
