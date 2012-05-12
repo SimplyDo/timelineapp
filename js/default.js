@@ -5,4 +5,9 @@ window.onload = function() {
 	  placement: 'bottom'
 	  });
   */
+  
+  $('tr').bind('click', function() {
+    $('#editEvent').modal('show');
+  });
+  
 }

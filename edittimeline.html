@@ -64,7 +64,7 @@
 
     
     <div class="row">
-      <div class="span10">
+      <div class="span9">
         <div class="timelineDetails">
           <div class="inlineControls pull-right">
             <a data-toggle="modal" href="#createTimeline"><i class="icon-pencil"></i> Edit</a></a>
@@ -80,20 +80,21 @@
           </ul>
         </div>
       </div>
-      <div class="span2 guide">
-        <a href="timelineview.html" class="btn btn-primary"><i class="icon-eye-open icon-white"></i> View Timeline</a>
-        <p>
-          The title and description are visible but the events below are what people care most about.
-        </p>
+      <div class="span3">
+        <div class="guide">
+          <p>
+            The title and description are visible but the events below are what people care most about.
+          </p>
+          <p>
+            <a href="timelineview.html" class=""><i class="icon-eye-open"></i> View Timeline</a>
+          </p>
+        </div>
       </div>
     </div>
     
     <div class="row">
-      <div class="span12">
-        <h2 class="listHeader">Event List</h2>
-      </div>
-      <div class="span10">
-        <table class="table table-striped">
+      <div class="span9">
+        <table class="table">
           <tbody>
             
             <tr>
@@ -101,16 +102,12 @@
               <td class="range">&#x2192;</td>
               <td class="date">March 29th<span class="year">2012</span></td>
               <td class="title">
-                This is an important Event
+                <h3>This is an important Event</h3>
+                <p>Truncated Description pariatur excepteur williamsburg narwhal high life, exercitation street art duis truffaut farm-to-table incididunt adipisicing. Sunt farm-to-table blog high life...
+                </p>
                 <div>
                   <span class="label">Video</span> <span class="label">Text</span>
                 </div>
-              </td>
-              <td class="inlineOptions">
-                <ul class="nav nav-list">
-                  <li><a data-toggle="modal" href="#editEvent"><i class="icon-pencil"></i> Edit</a></li>
-                  <li><a href="#delete"><i class="icon-remove"></i> Remove</a></li>
-                </ul>
               </td>
             </tr>
             
@@ -119,16 +116,12 @@
               <td class="range">&#x2192;</td>
               <td class="date">March 29th<span class="year">2012</span></td>
               <td class="title">
-                This is an important Event
+                <h3>This is an important Event</h3>
+                <p>Truncated Description pariatur excepteur williamsburg narwhal high life, exercitation street art duis truffaut farm-to-table incididunt adipisicing. Sunt farm-to-table blog high life...
+                </p>
                 <div>
                   <span class="label">Video</span> <span class="label">Text</span>
                 </div>
-              </td>
-              <td class="inlineOptions">
-                <ul class="nav nav-list">
-                  <li><a data-toggle="modal" href="#editEvent"><i class="icon-pencil"></i> Edit</a></li>
-                  <li><a href="#delete"><i class="icon-remove"></i> Remove</a></li>
-                </ul>
               </td>
             </tr>
             
@@ -137,16 +130,12 @@
               <td class="range"></td>
               <td class="date"></td>
               <td class="title">
-                This is an important Event
+                <h3>This is an important Event</h3>
+                <p>Truncated Description pariatur excepteur williamsburg narwhal high life, exercitation street art duis truffaut farm-to-table incididunt adipisicing. Sunt farm-to-table blog high life...
+                </p>
                 <div>
                   <span class="label">Video</span> <span class="label">Text</span>
                 </div>
-              </td>
-              <td class="inlineOptions">
-                <ul class="nav nav-list">
-                  <li><a data-toggle="modal" href="#editEvent"><i class="icon-pencil"></i> Edit</a></li>
-                  <li><a href="#delete"><i class="icon-remove"></i> Remove</a></li>
-                </ul>
               </td>
             </tr>
             
@@ -155,16 +144,12 @@
               <td class="range">&#x2192;</td>
               <td class="date">March 29th<span class="year">2012</span></td>
               <td class="title">
-                This is an important Event
+                <h3>This is an important Event</h3>
+                <p>Truncated Description pariatur excepteur williamsburg narwhal high life, exercitation street art duis truffaut farm-to-table incididunt adipisicing. Sunt farm-to-table blog high life...
+                </p>
                 <div>
                   <span class="label">Video</span> <span class="label">Text</span>
                 </div>
-              </td>
-              <td class="inlineOptions">
-                <ul class="nav nav-list">
-                  <li><a data-toggle="modal" href="#editEvent"><i class="icon-pencil"></i> Edit</a></li>
-                  <li><a href="#delete"><i class="icon-remove"></i> Remove</a></li>
-                </ul>
               </td>
             </tr>
             
@@ -173,40 +158,29 @@
               <td class="range"></td>
               <td class="date"></td>
               <td class="title">
-                This is an important Event
+                <h3>This is an important Event</h3>
+                <p>Truncated Description pariatur excepteur williamsburg narwhal high life, exercitation street art duis truffaut farm-to-table incididunt adipisicing. Sunt farm-to-table blog high life...
+                </p>
                 <div>
                   <span class="label">Video</span> <span class="label">Text</span>
                 </div>
               </td>
-              <td class="inlineOptions">
-                <ul class="nav nav-list">
-                  <li><a data-toggle="modal" href="#editEvent"><i class="icon-pencil"></i> Edit</a></li>
-                  <li><a href="#delete"><i class="icon-remove"></i> Remove</a></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td id="addEventRow" colspan="4">
-                <a data-toggle="modal" href="#editEvent" class="btn btn-primary btn-large"><i class="icon-plus icon-white"></i> Add New Event</a>
-              </td>
-            </td>
-            
-           
+            </tr>           
           </tbody>
-        
         </table>
+        <div id="addEventRow" colspan="4">
+          <a data-toggle="modal" href="#editEvent" class="btn btn-primary btn-large"><i class="icon-plus icon-white"></i> Add New Event</a>
+        </div>
       </div>
-      <div class="span2 guide">
-        <a data-toggle="modal" href="#editEvent" class="btn btn-primary"><i class="icon-plus icon-white"></i> Add New Event</a>
-        <p>
-          Events are automatically sorted by their start date.
-        </p>
-        <p>
-          Timelines that have a narrative work best.
-        </p>
-        <p>
-          You can mix different media.
-        </p>
+      <div class="span3">
+        <div class="guide">
+          <p>
+            <a data-toggle="modal" href="#editEvent" class="btn btn-primary"><i class="icon-plus icon-white"></i> Add New Event</a>
+          </p>
+          <p>
+            Events are automatically sorted by their start date.
+          </p>
+        </div>
       </div>
     </div>  
   </div>
@@ -252,6 +226,15 @@
 	    <form class="form-horizontal">
         <fieldset>
           <div class="control-group">
+            <label class="control-label" for="input01">Date(s)</label>
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on">Start</span><input type="text" id="input01" class="span1">
+                <span class="add-on">End</span><input type="text" id="input02" class="span1">
+              </div>
+            </div>
+          </div>
+          <div class="control-group">
             <label class="control-label" for="input01">Headline</label>
             <div class="controls">
               <input type="text" class="input-xlarge" id="input01">
@@ -260,7 +243,19 @@
           <div class="control-group">
             <label class="control-label" for="textarea">Description</label>
             <div class="controls">
-              <textarea class="input-xlarge" id="textarea" rows="5"></textarea>
+              <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="select">Media</label>
+            <div class="controls">
+              <select id="select">
+                <option>Photo</option>
+                <option>Video</option>
+                <option>Twitter</option>
+                <option>Map</option>
+                <option>None</option>
+              </select>
             </div>
           </div>
         </fieldset>
@@ -268,7 +263,7 @@
 	  </div>
 	  <div class="modal-footer">
 	    <button class="btn" data-dismiss="modal"><i class="icon-remove"></i> Cancel</button>
-	    <button class="btn btn-success" data-dismiss="modal">Save Event <i class="icon-ok icon-white"></i></button>
+	    <button class="btn btn-success" data-dismiss="modal"><i class="icon-ok icon-white"></i> Save Event</button>
 	  </div>
 	</div>
 		

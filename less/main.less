@@ -19,11 +19,6 @@ h1 {
 }
 
 h2 {
-  &.listHeader {
-    color:#000;
-    font-size:1.5em;
-    margin:0.8em 0px 0.5em 0px;
-  }
 }
 
 #timeline-embed {
@@ -110,11 +105,13 @@ p.promo {
 
 
 .timelineDetails {
-  background-color:#F9F9F9;
-  padding:20px 30px;
-  border:1px solid #DDD;
-  margin-bottom:30px;
-  .rounded-corners(5px);
+  //background-color:#F9F9F9;
+  //padding:20px 30px;
+  //border:1px solid #CCC;
+  margin-bottom:40px;
+  //.rounded-corners(5px);
+  //.gradient(rgb(250,250,250),rgb(240,240,240));
+  //.box-shadow(0px, 4px, 0px, rgba(0,0,0,0.2));
   .description {
     margin:0.5em 0;
     p {
@@ -129,18 +126,16 @@ p.promo {
 }
 
 table {
+  border-bottom:1px solid #DDD;
   th {
     font-weight:bold;
     font-size:1em;
   }
   td {
     padding-bottom:18px !important;
+    cursor:pointer;
     &.inlineOptions {
       width:100px;
-    }
-    &#addEventRow {
-      text-align:center;
-      padding-top:15px;
     }
     &.range {
       width:10px;
@@ -161,22 +156,39 @@ table {
       }
     }
     &.title {
-      font-size:1.3em;
-      line-height:1.4em;
       padding-left:50px !important;
       div {
-        margin-top:1px;
+        margin-bottom:1em;
+      }
+      h3 {
+      font-weight:normal;
+      margin:0px 0px 0.5em 0px;
+      font-size:1.3em;
+      line-height:1.4em;
+      }
+      p {
+        font-size:1.1em;
+        line-height:1.5em;
+        color:#999;
       }
     }
   }
 }
 
+#addEventRow {
+  text-align:center;
+}
+
 .guide {
+  padding:15px 15px 1px 15px;
+  border:1px solid #DDD;
+  background-color:#EEE;
+  .rounded-corners(3px);
   p {
-    margin:1em 0;
+    margin:0 0 1em 0;
     font-size:1.1em;
     line-height:1.5em;
-    color:#999;
+    color:#666;
   }
 }
 
