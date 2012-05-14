@@ -64,7 +64,7 @@
         <div class="timelineDetails">
           <h2><a href="#" target="new"  class=""><%= timeline.name %></a></h2>
           <div class="description">
-            <% timeline.description.split("\n").each do |paragraph| -%>
+            <% timeline.description.split("\n\n").each do |paragraph| -%>
             <p><%= paragraph %></p>
             <% end -%>
           </div>
@@ -104,23 +104,23 @@
 	    <h3>Setup a new timeline</h3>
 	  </div>
 	  <div class="modal-body">
-	    <form class="form-horizontal">
+	    <%= form_for @timeline, html: { class: 'form-horizontal' } do |f| %>
         <fieldset>
           <div class="control-group">
-            <label class="control-label" for="input01">Timeline Name</label>
+            <%= f.label :name, 'Timeline Name', class: 'control-label' %>
             <div class="controls">
-              <input type="text" class="input-xlarge" id="input01">
+              <%= f.text_field :name, class: 'input-xlarge' %>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="textarea">Description</label>
+            <%= f.label :description, class: 'control-label' %>
             <div class="controls">
-              <textarea class="input-xlarge" id="textarea" rows="5"></textarea>
+              <%= f.text_area :description, class: 'input-xlarge', rows: 5 %>
               <p class="help-block">You can always edit this later</p>
             </div>
           </div>
         </fieldset>
-      </form>
+      <% end %>
 	  </div>
 	  <div class="modal-footer">
 	    <button class="btn" data-dismiss="modal"><i class="icon-remove"></i> Cancel</button>
