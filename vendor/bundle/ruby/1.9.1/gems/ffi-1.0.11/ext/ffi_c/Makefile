@@ -12,11 +12,11 @@ ECHO = $(ECHO1:0=@echo)
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /Users/john/.rbenv/versions/1.9.3-p125/include/ruby-1.9.1
-hdrdir = /Users/john/.rbenv/versions/1.9.3-p125/include/ruby-1.9.1
-arch_hdrdir = /Users/john/.rbenv/versions/1.9.3-p125/include/ruby-1.9.1/$(arch)
+topdir = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
+hdrdir = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
+arch_hdrdir = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/$(arch)
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/Users/john/.rbenv/versions/1.9.3-p125
+prefix = $(DESTDIR)/Users/alex/.rvm/rubies/ruby-1.9.3-p194
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
 exec_prefix = $(prefix)
 vendorhdrdir = $(rubyhdrdir)/vendor_ruby
@@ -53,11 +53,11 @@ vendorarchdir = $(vendorlibdir)/$(sitearch)
 
 NULLCMD = :
 
-CC = /usr/bin/gcc
-CXX = g++
-LIBRUBY = $(LIBRUBY_A)
+CC = clang
+CXX = clang++
+LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
-LIBRUBYARG_SHARED = 
+LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
 LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
 OUTFLAG = -o 
 COUTFLAG = -o 
@@ -65,14 +65,14 @@ COUTFLAG = -o
 RUBY_EXTCONF_H = extconf.h
 cflags   =  $(optflags) $(debugflags) $(warnflags)
 optflags = -O3
-debugflags = -ggdb
+debugflags = -g3
 warnflags = -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration
-CFLAGS   = -fno-common $(cflags)  -pipe -Wno-declaration-after-statement  $(ARCH_FLAG)
+CFLAGS   = -fno-common $(cflags)  -fno-common -pipe $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\" -I'/Users/john/.rbenv/versions/1.9.3-p125/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
+CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\" -I/Users/alex/.rvm/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
 CXXFLAGS = $(CFLAGS) $(cxxflags)
-ldflags  = -L. -L'/Users/john/.rbenv/versions/1.9.3-p125/lib' 
+ldflags  = -L. 
 dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -Wl,-flat_namespace
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
@@ -83,11 +83,11 @@ EXEEXT =
 
 RUBY_BASE_NAME = ruby
 RUBY_INSTALL_NAME = ruby
-RUBY_SO_NAME = ruby
-arch = x86_64-darwin11.2.0
+RUBY_SO_NAME = ruby.1.9.1
+arch = x86_64-darwin11.4.0
 sitearch = $(arch)
 ruby_version = 1.9.1
-ruby = /Users/john/.rbenv/versions/1.9.3-p125/bin/ruby
+ruby = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/bin/ruby
 RUBY = $(ruby)
 RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
@@ -102,8 +102,8 @@ COPY = cp
 
 preload = 
 
-libpath = . $(libdir)
-LIBPATH =  -L. -L$(libdir)
+libpath = . $(libdir) /Users/alex/.rvm/usr/lib
+LIBPATH =  -L. -L$(libdir) -L/Users/alex/.rvm/usr/lib
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -114,7 +114,7 @@ extout =
 extout_prefix = 
 target_prefix = 
 LOCAL_LIBS = 
-LIBS =   -lpthread -ldl -lobjc 
+LIBS = $(LIBRUBYARG_SHARED)  -lpthread -ldl -lobjc 
 SRCS = AbstractMemory.c ArrayType.c Buffer.c Call.c ClosurePool.c DataConverter.c DynamicLibrary.c ffi.c Function.c FunctionInfo.c LastError.c MappedType.c MemoryPointer.c MethodHandle.c Platform.c Pointer.c Struct.c StructByReference.c StructByValue.c StructLayout.c Thread.c Type.c Types.c Variadic.c
 OBJS = AbstractMemory.o ArrayType.o Buffer.o Call.o ClosurePool.o DataConverter.o DynamicLibrary.o ffi.o Function.o FunctionInfo.o LastError.o MappedType.o MemoryPointer.o MethodHandle.o Platform.o Pointer.o Struct.o StructByReference.o StructByValue.o StructLayout.o Thread.o Type.o Types.o Variadic.o
 TARGET = ffi_c
@@ -124,8 +124,8 @@ STATIC_LIB =
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/john/Projects/TimelineApp/vendor/bundle/ruby/1.9.1/gems/ffi-1.0.11/lib$(target_prefix)
-RUBYARCHDIR = /Users/john/Projects/TimelineApp/vendor/bundle/ruby/1.9.1/gems/ffi-1.0.11/lib$(target_prefix)
+RUBYLIBDIR = /Users/alex/Development/timelineapp/vendor/bundle/ruby/1.9.1/gems/ffi-1.0.11/lib$(target_prefix)
+RUBYARCHDIR = /Users/alex/Development/timelineapp/vendor/bundle/ruby/1.9.1/gems/ffi-1.0.11/lib$(target_prefix)
 HDRDIR        = $(rubyhdrdir)/ruby$(target_prefix)
 ARCHHDRDIR    = $(rubyhdrdir)/$(arch)/ruby$(target_prefix)
 

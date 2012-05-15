@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/seyhunak/twitter-bootstrap-rails"
   s.require_paths = ["lib"]
   s.rubyforge_project = "twitter-bootstrap-rails"
-  s.rubygems_version = "1.8.11"
+  s.rubygems_version = "1.8.24"
   s.summary = "Bootstrap CSS toolkit for Rails 3.1 Asset Pipeline"
 
   if s.respond_to? :specification_version then

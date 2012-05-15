@@ -12,11 +12,11 @@ ECHO = $(ECHO1:0=@echo)
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /Users/john/.rbenv/versions/1.9.3-p125/include/ruby-1.9.1
-hdrdir = /Users/john/.rbenv/versions/1.9.3-p125/include/ruby-1.9.1
-arch_hdrdir = /Users/john/.rbenv/versions/1.9.3-p125/include/ruby-1.9.1/$(arch)
+topdir = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
+hdrdir = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
+arch_hdrdir = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/$(arch)
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/Users/john/.rbenv/versions/1.9.3-p125
+prefix = $(DESTDIR)/Users/alex/.rvm/rubies/ruby-1.9.3-p194
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
 exec_prefix = $(prefix)
 vendorhdrdir = $(rubyhdrdir)/vendor_ruby
@@ -53,11 +53,11 @@ vendorarchdir = $(vendorlibdir)/$(sitearch)
 
 NULLCMD = :
 
-CC = /usr/bin/gcc
-CXX = g++
-LIBRUBY = $(LIBRUBY_A)
+CC = clang
+CXX = clang++
+LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
-LIBRUBYARG_SHARED = 
+LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
 LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
 OUTFLAG = -o 
 COUTFLAG = -o 
@@ -65,14 +65,14 @@ COUTFLAG = -o
 RUBY_EXTCONF_H = 
 cflags   =  $(optflags) $(debugflags) $(warnflags)
 optflags = -O3
-debugflags = -ggdb
+debugflags = -g3
 warnflags = -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration
-CFLAGS   = -fno-common $(cflags)  -pipe $(ARCH_FLAG)
-INCFLAGS = -I. -I/Users/john/Projects/TimelineApp/vendor/bundle/ruby/1.9.1/gems/libv8-3.3.10.4-x86_64-darwin-11/lib/libv8/v8/include -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
+CFLAGS   = -fno-common $(cflags)  -fno-common -pipe $(ARCH_FLAG)
+INCFLAGS = -I. -I/Users/alex/Development/timelineapp/vendor/bundle/ruby/1.9.1/gems/libv8-3.3.10.4-x86_64-darwin-11/lib/libv8/v8/include -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS =  -I'/Users/john/.rbenv/versions/1.9.3-p125/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags) -Wall -g -rdynamic
+CPPFLAGS =  -I/Users/alex/.rvm/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags) -Wall -g -rdynamic
 CXXFLAGS = $(CFLAGS) $(cxxflags)
-ldflags  = /Users/john/Projects/TimelineApp/vendor/bundle/ruby/1.9.1/gems/libv8-3.3.10.4-x86_64-darwin-11/lib/libv8/build/v8/libv8.a -L. -L'/Users/john/.rbenv/versions/1.9.3-p125/lib' 
+ldflags  = /Users/alex/Development/timelineapp/vendor/bundle/ruby/1.9.1/gems/libv8-3.3.10.4-x86_64-darwin-11/lib/libv8/build/v8/libv8.a -L. 
 dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -Wl,-flat_namespace
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
@@ -83,11 +83,11 @@ EXEEXT =
 
 RUBY_BASE_NAME = ruby
 RUBY_INSTALL_NAME = ruby
-RUBY_SO_NAME = ruby
-arch = x86_64-darwin11.2.0
+RUBY_SO_NAME = ruby.1.9.1
+arch = x86_64-darwin11.4.0
 sitearch = $(arch)
 ruby_version = 1.9.1
-ruby = /Users/john/.rbenv/versions/1.9.3-p125/bin/ruby
+ruby = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/bin/ruby
 RUBY = $(ruby)
 RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
@@ -102,8 +102,8 @@ COPY = cp
 
 preload = 
 
-libpath = . $(libdir)
-LIBPATH =  -L. -L$(libdir)
+libpath = . $(libdir) /Users/alex/.rvm/usr/lib
+LIBPATH =  -L. -L$(libdir) -L/Users/alex/.rvm/usr/lib
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -114,7 +114,7 @@ extout =
 extout_prefix = 
 target_prefix = 
 LOCAL_LIBS = 
-LIBS =  -lobjc  -lpthread -ldl -lobjc  -lpthread
+LIBS = $(LIBRUBYARG_SHARED) -lobjc  -lpthread -ldl -lobjc  -lpthread
 SRCS = rr.cpp v8.cpp v8_array.cpp v8_callbacks.cpp v8_context.cpp v8_date.cpp v8_debug.cpp v8_exception.cpp v8_external.cpp v8_function.cpp v8_handle.cpp v8_locker.cpp v8_message.cpp v8_object.cpp v8_script.cpp v8_string.cpp v8_template.cpp v8_try_catch.cpp v8_v8.cpp v8_value.cpp v8_weakref.cpp
 OBJS = rr.o v8.o v8_array.o v8_callbacks.o v8_context.o v8_date.o v8_debug.o v8_exception.o v8_external.o v8_function.o v8_handle.o v8_locker.o v8_message.o v8_object.o v8_script.o v8_string.o v8_template.o v8_try_catch.o v8_v8.o v8_value.o v8_weakref.o
 TARGET = v8
@@ -124,8 +124,8 @@ STATIC_LIB =
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/john/Projects/TimelineApp/vendor/bundle/ruby/1.9.1/gems/therubyracer-0.10.1/lib$(target_prefix)
-RUBYARCHDIR = /Users/john/Projects/TimelineApp/vendor/bundle/ruby/1.9.1/gems/therubyracer-0.10.1/lib$(target_prefix)
+RUBYLIBDIR = /Users/alex/Development/timelineapp/vendor/bundle/ruby/1.9.1/gems/therubyracer-0.10.1/lib$(target_prefix)
+RUBYARCHDIR = /Users/alex/Development/timelineapp/vendor/bundle/ruby/1.9.1/gems/therubyracer-0.10.1/lib$(target_prefix)
 HDRDIR        = $(rubyhdrdir)/ruby$(target_prefix)
 ARCHHDRDIR    = $(rubyhdrdir)/$(arch)/ruby$(target_prefix)
 

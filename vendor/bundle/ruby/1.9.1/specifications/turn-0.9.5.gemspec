@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://rubygems.org/gems/turn"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.11"
+  s.rubygems_version = "1.8.24"
   s.summary = "Test Reporters (New) -- new output formats for Testing"
 
   if s.respond_to? :specification_version then

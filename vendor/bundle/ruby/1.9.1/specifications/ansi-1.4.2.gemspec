@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.files = ["HISTORY.rdoc", "README.rdoc", "QED.rdoc", "COPYING.rdoc"]
   s.homepage = "http://rubyworks.github.com/ansi"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.11"
+  s.rubygems_version = "1.8.24"
   s.summary = "ANSI at your fingertips!"
 
   if s.respond_to? :specification_version then

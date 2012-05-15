@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.files = ["README.md"]
   s.homepage = "http://github.com/imanel/libwebsocket"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.11"
+  s.rubygems_version = "1.8.24"
   s.summary = "Universal Ruby library to handle WebSocket protocol"
 
   if s.respond_to? :specification_version then

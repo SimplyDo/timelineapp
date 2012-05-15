@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://lesscss.org"
   s.require_paths = ["lib"]
   s.rubyforge_project = "less"
-  s.rubygems_version = "1.8.11"
+  s.rubygems_version = "1.8.24"
   s.summary = "Leaner CSS, in your browser or Ruby (via less.js)"
 
   if s.respond_to? :specification_version then

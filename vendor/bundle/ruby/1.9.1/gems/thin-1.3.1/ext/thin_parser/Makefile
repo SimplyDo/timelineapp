@@ -12,11 +12,11 @@ ECHO = $(ECHO1:0=@echo)
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /Users/john/.rbenv/versions/1.9.3-p125/include/ruby-1.9.1
-hdrdir = /Users/john/.rbenv/versions/1.9.3-p125/include/ruby-1.9.1
-arch_hdrdir = /Users/john/.rbenv/versions/1.9.3-p125/include/ruby-1.9.1/$(arch)
+topdir = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
+hdrdir = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1
+arch_hdrdir = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/include/ruby-1.9.1/$(arch)
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/Users/john/.rbenv/versions/1.9.3-p125
+prefix = $(DESTDIR)/Users/alex/.rvm/rubies/ruby-1.9.3-p194
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
 exec_prefix = $(prefix)
 vendorhdrdir = $(rubyhdrdir)/vendor_ruby
@@ -53,11 +53,11 @@ vendorarchdir = $(vendorlibdir)/$(sitearch)
 
 NULLCMD = :
 
-CC = /usr/bin/gcc
-CXX = g++
-LIBRUBY = $(LIBRUBY_A)
+CC = clang
+CXX = clang++
+LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
-LIBRUBYARG_SHARED = 
+LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
 LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
 OUTFLAG = -o 
 COUTFLAG = -o 
@@ -65,14 +65,14 @@ COUTFLAG = -o
 RUBY_EXTCONF_H = 
 cflags   =  $(optflags) $(debugflags) $(warnflags)
 optflags = -O3
-debugflags = -ggdb
+debugflags = -g3
 warnflags = -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration
-CFLAGS   = -fno-common $(cflags)  -pipe $(ARCH_FLAG)
+CFLAGS   = -fno-common $(cflags)  -fno-common -pipe $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS =  -I'/Users/john/.rbenv/versions/1.9.3-p125/include'  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
+CPPFLAGS =  -I/Users/alex/.rvm/usr/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
 CXXFLAGS = $(CFLAGS) $(cxxflags)
-ldflags  = -L. -L'/Users/john/.rbenv/versions/1.9.3-p125/lib' 
+ldflags  = -L. 
 dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -Wl,-flat_namespace
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
@@ -83,11 +83,11 @@ EXEEXT =
 
 RUBY_BASE_NAME = ruby
 RUBY_INSTALL_NAME = ruby
-RUBY_SO_NAME = ruby
-arch = x86_64-darwin11.2.0
+RUBY_SO_NAME = ruby.1.9.1
+arch = x86_64-darwin11.4.0
 sitearch = $(arch)
 ruby_version = 1.9.1
-ruby = /Users/john/.rbenv/versions/1.9.3-p125/bin/ruby
+ruby = /Users/alex/.rvm/rubies/ruby-1.9.3-p194/bin/ruby
 RUBY = $(ruby)
 RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
@@ -102,8 +102,8 @@ COPY = cp
 
 preload = 
 
-libpath = . $(libdir)
-LIBPATH =  -L. -L$(libdir)
+libpath = . $(libdir) /Users/alex/.rvm/usr/lib
+LIBPATH =  -L. -L$(libdir) -L/Users/alex/.rvm/usr/lib
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -114,7 +114,7 @@ extout =
 extout_prefix = 
 target_prefix = 
 LOCAL_LIBS = 
-LIBS =  -lc  -lpthread -ldl -lobjc 
+LIBS = $(LIBRUBYARG_SHARED) -lc  -lpthread -ldl -lobjc 
 SRCS = parser.c thin.c
 OBJS = parser.o thin.o
 TARGET = thin_parser
@@ -124,8 +124,8 @@ STATIC_LIB =
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/john/Projects/TimelineApp/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib$(target_prefix)
-RUBYARCHDIR = /Users/john/Projects/TimelineApp/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib$(target_prefix)
+RUBYLIBDIR = /Users/alex/Development/timelineapp/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib$(target_prefix)
+RUBYARCHDIR = /Users/alex/Development/timelineapp/vendor/bundle/ruby/1.9.1/gems/thin-1.3.1/lib$(target_prefix)
 HDRDIR        = $(rubyhdrdir)/ruby$(target_prefix)
 ARCHHDRDIR    = $(rubyhdrdir)/$(arch)/ruby$(target_prefix)
 
