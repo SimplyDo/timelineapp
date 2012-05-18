@@ -3,11 +3,6 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Your Timelines</title>
-    <!--
-		<link href="css/main.css" rel="stylesheet">
-		<script src="js/default-ck.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/coffee.js" type="text/javascript" charset="utf-8"></script>
-    -->
     <%= stylesheet_link_tag "application", :media => "all" %>
     
 	 <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -77,10 +72,14 @@
       </div>
       <div class="span2">
        <ul class="nav nav-list">
-         <li><a href="timelineview.html" target="new" class=""><i class="icon-eye-open"></i> View</a></li>
-         <li><a href="edittimeline.html" class=""><i class="icon-pencil"></i> Edit</a></li>
-          <li><a href="#delete" class=""><i class="icon-trash"></i> Delete</a></li>
-         <li><a href="#share" class=""><i class="icon-share"></i> Share</a></li>
+        <li><a href="timelineview.html" target="new" class=""><i class="icon-eye-open"></i> View</a></li>
+        <li>
+          <%= link_to edit_timeline_path(timeline) do %>
+          <i class="icon-pencil"></i> Edit</a></li>
+          <% end %>
+        </li>
+        <li><a href="#delete" class=""><i class="icon-trash"></i> Delete</a></li>
+        <li><a href="#share" class=""><i class="icon-share"></i> Share</a></li>
        </ul>
       </div>  
     </div>
