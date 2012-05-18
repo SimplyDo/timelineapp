@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120514192338) do
 
   create_table "timelines", :force => true do |t|
-    t.string   "name"
+    t.string   "headline"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

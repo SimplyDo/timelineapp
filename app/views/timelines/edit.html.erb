@@ -60,7 +60,7 @@
           <div class="inlineControls pull-right">
             <a data-toggle="modal" href="#createTimeline"><i class="icon-pencil"></i> Edit</a></a>
           </div>
-          <h1><%= @timeline.name %></h1>
+          <h1><%= @timeline.headline %></h1>
           <div class="description">
             <% @timeline.description.split("\n\n").each do |paragraph| -%>
             <p><%= paragraph %></p>
@@ -133,7 +133,7 @@
 	    <form class="form-horizontal">
         <fieldset>
           <div class="control-group">
-            <label class="control-label" for="input01">Timeline Name</label>
+            <label class="control-label" for="input01">Headline</label>
             <div class="controls">
               <input type="text" class="input-xlarge" id="input01">
             </div>

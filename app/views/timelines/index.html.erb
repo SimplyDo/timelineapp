@@ -57,7 +57,7 @@
     <div class="timelineListEntry row">
       <div class="span10">
         <div class="timelineDetails">
-          <h2><a href="#" target="new"  class=""><%= timeline.name %></a></h2>
+          <h2><a href="#" target="new"  class=""><%= timeline.headline %></a></h2>
           <div class="description">
             <% timeline.description.split("\n\n").each do |paragraph| -%>
             <p><%= paragraph %></p>
@@ -106,9 +106,9 @@
   	  <div class="modal-body">
         <fieldset>
           <div class="control-group">
-            <%= f.label :name, 'Timeline Name', class: 'control-label' %>
+            <%= f.label :headline, 'Headline', class: 'control-label' %>
             <div class="controls">
-              <%= f.text_field :name, class: 'input-xlarge' %>
+              <%= f.text_field :headline, class: 'input-xlarge' %>
             </div>
           </div>
           <div class="control-group">
