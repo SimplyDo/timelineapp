@@ -89,21 +89,26 @@
       <div class="span9">
         <table class="table">
           <tbody>
-            
-<!--             <tr>
-              <td class="date">March 27th<span class="year">2012</span></td>
+            <% @timeline.events.each do |event| -%>
+            <tr>
+              <td class="date"><%= ordinalized_date(event.started_at) %><span class="year"><%= event.started_at.year %></span></td>
+              <% if event.ended_at %>
               <td class="range">&#x2192;</td>
-              <td class="date">March 29th<span class="year">2012</span></td>
+              <td class="date"><%= ordinalized_date(event.ended_at) %><span class="year"><%= event.ended_at.year %></span></td>
+              <% else %>
+              <td colspan="2"></td>
+              <% end %>
               <td class="title">
-                <h3>This is an important Event</h3>
-                <p>Truncated Description pariatur excepteur williamsburg narwhal high life, exercitation street art duis truffaut farm-to-table incididunt adipisicing. Sunt farm-to-table blog high life...
+                <h3><%= event.headline %></h3>
+                <p>
+                  <%= event.description %>
                 </p>
                 <div>
                   <span class="label">Video</span> <span class="label">Text</span>
                 </div>
               </td>
             </tr>
- -->            
+            <% end -%>
           </tbody>
         </table>
         <div id="addEventRow" colspan="4">
