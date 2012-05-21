@@ -89,7 +89,7 @@
       <div class="span9">
         <table class="table">
           <tbody>
-            <% @timeline.events.each do |event| -%>
+            <% @timeline.events.each do |event|; next if event.new_record? -%>
             <tr>
               <td class="date"><%= ordinalized_date(event.started_at) %><span class="year"><%= event.started_at.year %></span></td>
               <% if event.ended_at %>
@@ -165,28 +165,28 @@
 	  <div class="modal-header">
 	    <h3>Create / Edit Event</h3>
 	  </div>
+    <%= form_for [@timeline, @event], html: { class: 'form-horizontal' } do |f| %>
 	  <div class="modal-body">
-	    <form class="form-horizontal">
         <fieldset>
           <div class="control-group">
-            <label class="control-label" for="input01">Date(s)</label>
+            <%= f.label :started_at, 'Date(s)', class: 'control-label' %>
             <div class="controls">
               <div class="input-prepend">
-                <span class="add-on">Start</span><input type="text" id="input01" class="span1">
-                <span class="add-on">End</span><input type="text" id="input02" class="span1">
+                <a href="#" rel="tooltip" title="Use format yyyy-mm-dd until we have a date picker"><span class="add-on">Start</span></a><%= f.text_field :started_at, class: "span1"%>
+                <a href="#" rel="tooltip" title="Use format yyyy-mm-dd until we have a date picker"><span class="add-on">End</span></a><%= f.text_field :ended_at, class: "span1"%>
               </div>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="input01">Headline</label>
+            <%= f.label :headline, class: 'control-label' %>
             <div class="controls">
-              <input type="text" class="input-xlarge" id="input01">
+              <%= f.text_field :headline, class: 'input-xlarge' %>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="textarea">Description</label>
+            <%= f.label :description, class: 'control-label' %>
             <div class="controls">
-              <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+              <%= f.text_area :description, class: 'input-xlarge', rows: 3 %>
             </div>
           </div>
           <div class="control-group">
@@ -202,12 +202,12 @@
             </div>
           </div>
         </fieldset>
-      </form>
 	  </div>
 	  <div class="modal-footer">
 	    <button class="btn" data-dismiss="modal"><i class="icon-remove"></i> Cancel</button>
-	    <button class="btn btn-success" data-dismiss="modal"><i class="icon-ok icon-white"></i> Save Event</button>
+	    <button class="btn btn-success" type="submit"><i class="icon-ok icon-white"></i> Save Event</button>
 	  </div>
+    <% end %>
 	</div>
 		
 		

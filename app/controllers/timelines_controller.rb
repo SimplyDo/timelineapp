@@ -11,5 +11,6 @@ class TimelinesController < ApplicationController
 
   def edit
     @timeline = Timeline.find(params[:id])
+    @event = @timeline.events.build
   end
 end

@@ -1,5 +1,7 @@
 TimelineApp::Application.routes.draw do
-  resources :timelines
+  resources :timelines do
+    resources :events
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
